@@ -24,15 +24,6 @@ function App() {
             const author = authors.find((data) => {
               return data.id === post.author_id;
             });
-            // authors.foreach((author) => {
-            //   if (author.id === post.author_id) {
-            //     return {
-            //       name: author.name,
-            //       avatar_url: author.avatar_url,
-            //       ...post,
-            //     };
-            //   }
-            // });
             return {
               name: author?.name,
               avatar_url: author?.avatar_url,
