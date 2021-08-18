@@ -1,8 +1,6 @@
-# MAQE Homework challenges: Template and Styling
+## MAQE Homework challenges: Template and Styling
 
-## Available Scripts
-
-In the project directory, you can run:
+MAQE Forum
 
 ### `npm install`
 
