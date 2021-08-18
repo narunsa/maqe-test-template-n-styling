@@ -1,0 +1,58 @@
+.post {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px gray;
+  margin: 10px 0px;
+  width: 100%;
+  &:nth-child(even) {
+    background-color: #c2e7ff;
+    .post__author {
+      border-bottom: 3px solid #c3c3c3;
+    }
+  }
+
+  .post__author {
+    display: flex;
+    padding: 10px 20px;
+    border-bottom: 3px solid #eaeaea;
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .post__author__name,
+    .post__author__iat {
+      font-size: 15px;
+      line-height: 2;
+      padding-left: 5px;
+    }
+    .post__author__name {
+      color: #e9694c;
+      font-weight: bold;
+    }
+    .post__author__iat {
+      color: #676768;
+    }
+  }
+  .post__content {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    img {
+      object-fit: contain;
+      width: 300px;
+    }
+    .post__detail {
+      padding: 0px 20px;
+      .post__title {
+        font-size: 26px;
+        font-weight: bold;
+      }
+      .post__description {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
