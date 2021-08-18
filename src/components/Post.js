@@ -1,9 +1,11 @@
 import React from "react";
 import "./Post.scss";
 
-const formatDateTime = (date) => {
-  const newDate = new Date(date);
-  let dateString = newDate.toLocaleDateString("en-us", {
+const formatDateTime = (date, timezone) => {
+  const dateTimeByTimeZone = new Date(
+    new Date(date).toLocaleString("en-us", { timeZone: timezone })
+  );
+  const dateString = dateTimeByTimeZone.toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -12,9 +14,9 @@ const formatDateTime = (date) => {
     // minute: "numeric",
     // hourCycle: "h24",
   });
-  return `${dateString}, ${addZero(newDate.getHours())}:${addZero(
-    newDate.getMinutes()
-  )}`;
+  const hours = addZero(dateTimeByTimeZone.getHours());
+  const minutes = addZero(dateTimeByTimeZone.getMinutes());
+  return `${dateString}, ${hours}:${minutes}`;
 };
 
 const addZero = (i) => {
@@ -24,14 +26,14 @@ const addZero = (i) => {
   return i;
 };
 
-function Post({ post }) {
+function Post({ post, timezone }) {
   return (
     <div className="post">
       <div className="post__author">
         <img src={post.avatar_url} alt={post.name} />
         <div className="post__author__name">{post.name}</div>
         <div className="post__author__iat">
-          posted on {formatDateTime(post.created_at)}
+          posted on {formatDateTime(post.created_at, timezone)}
         </div>
       </div>
       <div className="post__content">

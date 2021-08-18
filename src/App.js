@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Feed from "./components/Feed";
 
-const sortByDate = (data) => {};
+const timezone = "Asia/Bangkok";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -15,7 +15,7 @@ function App() {
       .then((data) => {
         const authors = data[0];
         const newPosts = data[1];
-        console.log(newPosts);
+        // console.log(newPosts);
         newPosts.sort((a, b) => {
           return new Date(b.created_at) - new Date(a.created_at);
         });
@@ -46,8 +46,8 @@ function App() {
   return (
     <div>
       <h1>MAQE Forum</h1>
-      <span>Your current timezome is: Asia/Bangkok</span>
-      <Feed posts={posts} />
+      <span>Your current timezome is: {timezone}</span>
+      <Feed posts={posts} timezone={timezone} />
     </div>
   );
 }
