@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Feed from "./components/Feed";
 
-const timezone = "Asia/Bangkok";
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 function App() {
   const [posts, setPosts] = useState([]);
